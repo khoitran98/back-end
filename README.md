@@ -3,7 +3,7 @@
 ## Setting Up
 ### `npm install`
 ### `npm run dev`
-Runs the app in the development mode.\
+Runs the app in the development mode.
 ## About
 * This backend uses Node, Express for server communication, Firebase Realtime Database for database, Twilio for texting and Heroku for hosting.
 * Since the repository does not contain the env variables (Firebase and Twilio configurations), running this locally won't work. 
