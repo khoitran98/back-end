@@ -31,7 +31,7 @@ let firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 let buffer = new Set(); // a buffer that contains all phone numbers in the middle of verification.
-// Expire the access code after 30 seconds
+// Expire the access code after 60 seconds
 const expire = (generatedCode, phoneNumber) => {
     setTimeout(async() => { 
         let ref = firebase.database().ref('users');
@@ -124,7 +124,7 @@ app.post('/users/:phone', async (req, res) => {
     const receiver = '+1' + phoneNumber; 
     const sender = process.env.TWILIO_NUMBER;
     sendMessage('+12518621381', receiver, message);
-    expire(generatedCode, phoneNumber); // Remove the phone number from the buffer and reset the access code after 30 seconds. Users need to request a new access code.
+    expire(generatedCode, phoneNumber); // Remove the phone number from the buffer and reset the access code after 60 seconds. Users need to request a new access code.
     res.send('Access Code has been generated and sent to your phone number.');
 });
 
